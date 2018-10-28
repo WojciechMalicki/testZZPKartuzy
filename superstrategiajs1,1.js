@@ -67,3 +67,4 @@
 	}
 //wciąż nie ma ataków i wszystko jest na jednym komputerze 
 //nie ma czytania guzików odświerzania i planowanych kosztów budynków
+//proponuje użycie php do przetwarzania a js tylko do czytania i odświerzania
