@@ -65,4 +65,5 @@
 		
 		runda++;
 	}
-
+//wciąż nie ma ataków i wszystko jest na jednym komputerze 
+//nie ma czytania guzików odświerzania i planowanych kosztów budynków
