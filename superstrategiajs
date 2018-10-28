@@ -1,0 +1,110 @@
+//wypisanie wszystkiego należy do HTML
+	var wybor;
+	var a;
+	var runda = 1;
+	//gracz 1
+	var jedzenie1 = 100000;
+	var pieniadze1 = 100000;
+	var domy1 = 2;
+	var farmy1 = 0;
+	var sklepy1 = 0;
+	var bazy_wojskowe1 = 0;
+	var ludzie1 = 8;
+	var zolnierze1 = 0;
+	//gracz 2
+	var jedzenie2 = 100000;
+	var pieniadze2 = 100000;
+	var domy2 = 2;
+	var farmy2 = 0;
+	var sklepy2 = 0;
+	var bazy_wojskowe2 = 0;
+	var ludzie2 = 8;
+	var zolnierze2 = 0;
+	while(true){
+	//wypisywanie potrzeba do tego już pliku html
+	//czytanie z guzika
+	if(runda % 2 != 0)
+		{
+			//gra gracz 1 html
+    if /*klikniento guzik 1*/ {
+    	if(pieniadze1 >= 20000)
+					{
+						domy1++;
+						ludzie1 = ludzie1 + 4;
+						pieniadze1 = pieniadze1 - 20000;
+					}
+    }else
+    if /*klikniento guzik 2*/{
+    	if(pieniadze1 >= 50000 && ludzie1 >= 5)
+					{
+						farmy1++;
+						ludzie1 = ludzie1 - 5;
+						pieniadze1 = pieniadze1 - 50000;
+					}
+    }else
+     if /*klikniento guzik 3*/{
+		if(pieniadze1 >= 80000 && ludzie1 >= 6)
+					{
+						sklepy1++;
+						ludzie1 = ludzie1 - 6;
+						pieniadze1 = pieniadze1 - 80000;
+					}
+     }else
+     if /*klikniento guzik 4*/{
+		if(pieniadze1 >= 500000)
+					{
+						bazy_wojskowe1++;
+						pieniadze1 = pieniadze1 - 500000;
+					}
+     }else
+     if /*klikniento guzik 5*/{
+
+     }
+ }else{
+ 	//html gra gracz 2
+ 	if /*klikniento guzik 1*/ {
+    	if(pieniadze2 >= 20000)
+					{
+						domy2++;
+						ludzie2 = ludzie2 + 4;
+						pieniadze2 = pieniadze2 - 20000;
+					}
+    }else
+    if /*klikniento guzik 2*/{
+    	if(pieniadze2 >= 50000 && ludzie2 >= 5)
+					{
+						farmy2++;
+						ludzie2 = ludzie2 - 5;
+						pieniadze2 = pieniadze2 - 50000;
+					}
+    }else
+     if /*klikniento guzik 3*/{
+		if(pieniadze2 >= 80000 && ludzie2 >= 6)
+					{
+						sklepy2++;
+						ludzie2 = ludzie2 - 6;
+						pieniadze2 = pieniadze2 - 80000;
+					}
+     }else
+     if /*klikniento guzik 4*/{
+		if(pieniadze2 >= 500000)
+					{
+						bazy_wojskowe2++;
+						pieniadze2 = pieniadze2 - 500000;
+					}
+     }else
+     if /*klikniento guzik 5*/{
+
+     }
+ }
+ if(runda % 2 == 0)
+		{
+			pieniadze1 = pieniadze1 + domy1 * 1000 - farmy1 * 2000 + sklepy1 * 2500;
+			jedzenie1 = jedzenie1 - ludzie1 * 2000 + farmy1 * 20000;
+			pieniadze2 = pieniadze2 + domy2 * 1000 - farmy2 * 2000 + sklepy2 * 2500;
+			jedzenie2 = jedzenie2 - ludzie2 * 2000 + farmy2 * 20000;
+			//html odświerzeni
+		}
+		runda++;
+	}
+
