@@ -17,6 +17,8 @@ tartak -kamien -ludzie +drewno/ture
 kamieniołom -drewno -ludzie +kamien/ture
 kopalnia -drewno -ludzie +złoto/ture
 magazyn -drewno -złoto - ludzie +miejsce na surowce
+szkółka zwiadowcza -drewno -kamien -złoto +produkcja szpiegów
+szkółka anty-zwiadowcza -drewno -kamien -złoto +produkcja anty-szpiegów
 ...?
 {rozszerzenie}
 bastion -kamien -dewno +defensywa?
@@ -30,6 +32,8 @@ jedzenie
 kamienie
 drewno
 zloto
+szpidzy-zmiejszanie rozżutności zwiadu
+anty-szpiedzy
 ...?
 }
 verb akt4(){
