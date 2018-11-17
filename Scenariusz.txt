@@ -19,6 +19,7 @@ kopalnia -drewno -ludzie +złoto/ture
 magazyn -drewno -złoto - ludzie +miejsce na surowce
 szkółka zwiadowcza -drewno -kamien -złoto +produkcja szpiegów
 szkółka anty-zwiadowcza -drewno -kamien -złoto +produkcja anty-szpiegów
+chorągiew bojowa -drewno -kamien -złoto +morale
 ...?
 {rozszerzenie}
 bastion -kamien -dewno +defensywa?
@@ -34,6 +35,9 @@ drewno
 zloto
 szpidzy-zmiejszanie rozżutności zwiadu
 anty-szpiedzy
+moc żołnierzy +moc armii //pomnożona przez ilość zbrojnych zwieksza moc armii
+moc armii //oznacza siłę całkowitą armii
+morale +zbrojni/ture +moc żołnierzy //dostajesz procent zbrojnych zależny od limitu armii oraz zwiększa moc zbrojnych o 1 
 ...?
 }
 verb akt4(){
