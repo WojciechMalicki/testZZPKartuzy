@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Righteous', cursive;
 }
 
 .grid-container {
@@ -14,7 +14,7 @@ body {
 
 #blue {
     grid-area: blue;
-    background-color: #2A3BB8;
+    background-color: #2A95B8;
     width: calc(13.5vw - 5px);
     height: calc(75vh - 10px);
     border-bottom: 5px solid black;
@@ -24,7 +24,7 @@ body {
 
 #yellow {
     grid-area: yellow;
-    background-color: #929405;
+    background-color: #e08235;
     width: calc(100vw - 5px);
     height: calc(15vh - 5px);
     border-bottom: 5px solid black;
@@ -35,7 +35,7 @@ body {
 
 #green {
     grid-area: green;
-    background-color: #239405;
+    background-color: #f05f83;
     width: calc(73vw - 10px);
     height: calc(75vh - 10px);
     border-bottom: 5px solid black;
@@ -64,4 +64,25 @@ body {
     border-left: 5px solid black;
     border-top: 5px solid black;
     text-align: center;
+}
+
+#logo
+{
+    margin: auto;
+    padding-top: 2.5vh;
+    padding-bottom: 2.5vh;
+    height: 10vh;
+}
+
+#zasoby
+{
+    position: relative;
+    background-color: #CD1D1D;
+    height: calc(11vh - 10px);
+    width: calc(10vw - 10px);
+    border-left: 10px solid black;
+    border-bottom: 10px solid black;
+    text-align: right;
+    float: right;
+    font-size: 2vh;
 }
