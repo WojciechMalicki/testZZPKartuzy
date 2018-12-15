@@ -1,0 +1,91 @@
+var gold=100, wood=110, iron=110, food=110, men=110, stone=110, population=men;
+var farm=0, house=0, forge=0;
+var farm={
+  cost:{food:0, gold:5, wood:20,men:5,iron:0, stone:5},
+  give:{food:5, gold:5, wood:20,men:0,iron:0,stone:0},
+ quality:0,
+};
+var forge={
+  cost:{food:8, gold:5, wood:5,men:3,iron:0, stone:20},
+  give:{food:0, gold:0, wood:0,men:0,iron:10, stone:0},
+ quality:0,
+};
+var house={
+  cost:{food:5, gold:5, wood:20,men:0,iron:3,stone:10},
+  give:{food:0, gold:0, wood:0,men:Math.floor(population/10),iron:0,stone:0},
+ quality:0,
+};
+
+
+function build(what){
+  switch(what){
+    case 0:
+      if(farm.cost.food<=food && farm.cost.stone<=stone && farm.cost.iron<=iron && farm.cost.men<=men && farm.cost.gold<=gold&&farm.cost.wood<=wood){
+        food-=farm.cost.food;
+        wood-=farm.cost.wood;
+        iron-=farm.cost.iron;
+        men-=farm.cost.men;
+        stone-=farm.cost.stone;
+        gold-=farm.cost.gold;
+        farm.quality++;
+      }else{
+        //alert("nie masz wystarczajoco zasobuw");
+        document.getElementById("alert").innerHTML="nie masz wystarczajoco zasobuw";
+      }
+      break;
+    case 1:
+      if(forge.cost.food<=food && forge.cost.stone<=stone && forge.cost.iron<=iron && forge.cost.men<=men && forge.cost.gold<=gold&&forge.cost.wood<=wood){
+        food-=forge.cost.food;
+        wood-=forge.cost.wood;
+        iron-=forge.cost.iron;
+        men-=forge.cost.men;
+        stone-=forge.cost.stone;
+        gold-=forge.cost.gold;
+      forge.quality++;
+      }else{
+        //alert("nie masz wystarczajoco zasobuw");
+        document.getElementById("alert").innerHTML="nie masz wystarczajoco zasobuw";
+      }
+      break;
+    case 2:
+            if(house.cost.food<=food && house.cost.stone<=stone && house.cost.iron<=iron && house.cost.men<=men && house.cost.gold<=gold&&house.cost.wood<=wood){
+        food-=house.cost.food;
+        wood-=house.cost.wood;
+        iron-=house.cost.iron;
+        men-=house.cost.men;
+        stone-=house.cost.stone;
+        gold-=house.cost.gold;
+      house.quality++;
+      }else{
+        //alert("nie masz wystarczajoco zasobuw");
+        document.getElementById("alert").innerHTML="nie masz wystarczajoco zasobuw";
+      }
+      break;
+  }display();
+}
+function display()
+{
+document.getElementById("food").innerHTML=food; 
+  document.getElementById("wood").innerHTML=wood;  
+  document.getElementById("stone").innerHTML=stone;  
+  document.getElementById("gold").innerHTML=gold;  
+  document.getElementById("men").innerHTML=men;  
+  document.getElementById("iron").innerHTML=iron;
+  
+   document.getElementById("forge").innerHTML=forge.quality;  
+   document.getElementById("farm").innerHTML=farm.quality;  
+   document.getElementById("house").innerHTML=house.quality;  
+ 
+}
+function endTern(){
+  food+=farm.give.food*farm.quality+forge.give.food*forge.quality+house.give.food*house.quality;//+nastempne
+  stone+=farm.give.stone*farm.quality+forge.give.stone*forge.quality+house.give.stone*house.quality;
+  men+=farm.give.men*farm.quality+forge.give.men*forge.quality+house.give.men*house.quality;
+  wood+=farm.give.wood*farm.quality+forge.give.wood*forge.quality+house.give.wood*house.quality;
+  iron+=farm.give.iron*farm.quality+forge.give.iron*forge.quality+house.give.iron*house.quality;
+  population+=men;
+  food-=population*2;
+  gold+=population*2;
+display();
+  
+}
