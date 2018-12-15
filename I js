@@ -71,6 +71,7 @@ document.getElementById("food").innerHTML=food;
   document.getElementById("gold").innerHTML=gold;  
   document.getElementById("men").innerHTML=men;  
   document.getElementById("iron").innerHTML=iron;
+  document.getElementById("population").innerHTML=population;
   
    document.getElementById("forge").innerHTML=forge.quality;  
    document.getElementById("farm").innerHTML=farm.quality;  
@@ -84,7 +85,37 @@ function endTern(){
   wood+=farm.give.wood*farm.quality+forge.give.wood*forge.quality+house.give.wood*house.quality;
   iron+=farm.give.iron*farm.quality+forge.give.iron*forge.quality+house.give.iron*house.quality;
   population+=men;
-  food-=population*2;
+  if(food>=population){
+  food-=population*2;}else if(men>=food){
+    population-=food;
+    men-=food;
+    food=0;
+  }else if(forge>=food){
+    forge-=food;
+    men=0;
+    food=0;
+    population-=food;
+  }else if(house>=food){
+    house-=food;
+    men=0;
+    food=0;
+    forge=0;
+    population-=food;
+  }  else if(farm>=food){
+    farm-=food;
+    men=0;
+    food=0;
+    forge=0;
+    house=0
+    population-=food;
+  }else{
+    farm=0;
+    men=0;
+    food=0;
+    forge=0;
+    house=0
+    population=0;
+  }
   gold+=population*2;
 display();
   
