@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl">
+
+	<head>
+		<meta charset="utf-8">
+		<title>The HTML5 Herald</title>
+		<meta name="description" content="TEST: RevoEmag, terminal">
+		<meta name="author" content="Grupa Zdolnych z Pomorza">
+	</head>
+
+	<body onload="display()">
+
+		<script src="js/first_script.js"></script>
+
+		<center>
+			<label > złoto: </label><span id="gold"></span>
+			<label > żelazo:</label><span id="iron"></span>
+			<label > drewno:</label><span id="wood"></span>
+			<label > ludzie:</label><span id="men"></span>
+			<label > kamień:</label><span id="stone"></span>
+			<label > populacja:</label><span id="population"></span>
+			<label > jedzenie:</label><span id="food"></span>
+			<br>
+			<label > kuznie: <label><span id="forge"></span>
+			<label > farmy: </label><span id="farm"></span>
+			<label > domy: </label><span id="house"></span>
+			<label > kamieniołomy: </label><span id="mine"></span>
+			<hr>
+			<button onclick="build(1)">kuźnia</button>
+			<button onclick="build(0)">Farma</button>    
+			<button onclick="build(2)">Dom</button>
+			<button onclick="build(3)">kamieniołom</button>
+		</center>
+      <div id="alert"></div>
+      <button id="endTure" onclick="endTern()">end</button>
+      <hr>
+      <div id="terminal">
+
+      </div>
+	</body>
+</html>
