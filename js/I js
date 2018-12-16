@@ -1,5 +1,6 @@
 var gold=110, wood=110, iron=110, food=110, men=110, stone=110, population=men;
 var farm=0, house=0, forge=0, mine=0;
+var terminallogs = ["<br>gra się zaczyna"];
 var farm={
   cost:{food:0, gold:5, wood:20,men:5,iron:0, stone:5},
   give:{food:5, gold:5, wood:20,men:0,iron:0,stone:0},
@@ -167,6 +168,13 @@ if(eaten<=food){
   population+=temp;
   men+=temp;
   temp=0;
+  terminal("zaczyna się nowa tura");
 display();
   
+
+}
+function terminal(info){
+  var temp0 = "<br>"+info;
+  terminallogs.unshift(temp0);
+  document.getElementById("terminal").innerHTML=terminallogs;
 }
