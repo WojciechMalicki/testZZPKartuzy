@@ -23,6 +23,9 @@
       <div id="alert"></div>
       
       <button id="endTure" onclick="endTern()">end</button>
-       
+       <hr>
+      <div id="terminal">
+        ffff
+      </div>
   </body>
 </html>
