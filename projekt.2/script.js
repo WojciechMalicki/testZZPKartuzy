@@ -1,3 +1,6 @@
+var consoleArray = ['gra się zaczyna<br>'];
+var consoleLayout = document.getElementById("console");
+consoleLayout.innerHTML=consoleArray;
 var wood = 100;
 var stone = 100;
 var people = 3000;
@@ -409,6 +412,7 @@ function build(type,Player)
 		building_menu(Player);
 		write_resource(Player.wood,Player.gold,Player.stone,Player.men,Player.food,Player.iron);
 		write_buildings(Player.farm,Player.forge,Player.house,Player.totem);
+		consolePrint(Player.nick+" wybudował farmę");
 	}
 	else if(type==1)
 	{
@@ -422,6 +426,7 @@ function build(type,Player)
 		building_menu(Player);
 		write_resource(Player.wood,Player.gold,Player.stone,Player.men,Player.food,Player.iron);
 		write_buildings(Player.farm,Player.forge,Player.house,Player.totem);
+		consolePrint(Player.nick+" wybudował kuźnie");
 	}
 	else if(type==2)
 	{
@@ -435,6 +440,7 @@ function build(type,Player)
 		building_menu(Player);
 		write_resource(Player.wood,Player.gold,Player.stone,Player.men,Player.food,Player.iron);
 		write_buildings(Player.farm,Player.forge,Player.house,Player.totem);
+		consolePrint(Player.nick+" wybudował dom");
 	}
 	if(type==3)
 	{
@@ -481,4 +487,8 @@ function win(Player)
 {
 	document.getElementById("green").style.fontSize = "45px";
 	document.getElementById('green').innerHTML = "Wygrał gracz o nicku <br/><br/>" + Player.nick;
+}
+function consolePrint(text){
+consoleArray.unshift(text+'<br>');
+consoleLayout.innerHTML=consoleArray;
 }

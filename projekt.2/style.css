@@ -2,7 +2,13 @@ body {
     margin: 0;
     font-family: 'Righteous', cursive;
 }
-
+#console {
+background-color: #EEE;
+margin: 1.5vh 10vw 0px 10vw;
+font-family: "Lucida Console", cursive, monospace;
+width: 70vw;
+height: 7vh;
+}
 .grid-container {
     display: grid;
     grid-template-areas: 
