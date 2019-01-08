@@ -60,7 +60,7 @@ function player_list()
 {
     var write = " ";
     player_number = document.getElementById("liczba_graczy").value;
-    if(player_number<11&&player_number>1){
+    if(player_number<5&&player_number>1){
     for(i=0;i<player_number;i++)
     {
         write += '<input type="text" id = gracz_' + i + '><br/> <br/>';
