@@ -60,12 +60,13 @@ function player_list()
 {
     var write = " ";
     player_number = document.getElementById("liczba_graczy").value;
+    if(player_number<11&&player_number>1){
     for(i=0;i<player_number;i++)
     {
         write += '<input type="text" id = gracz_' + i + '><br/> <br/>';
     }
     document.getElementById("green").innerHTML = 'Podaj nazwy graczy <br/> <br/>'+ write + '<br/> <br/> <button onclick="create_players()" >Akceptuj</button>';
-    
+    }
 }
 
 function create_players()
@@ -108,7 +109,8 @@ function create_players()
 
 function start()
 {
-    	alert(turn);
+    	
+    	consolePrint("rozpoczyna się tura "+turn)
     	if(player_number==4)
     	{
 	        if(turn==2)
@@ -232,9 +234,9 @@ function write_resource(wood,gold,stone,men,food,iron)
 function end_of_turn(Player)
 {
 	//odjęcie jedzenia w zależności od ilości ludzi
-
+	consolePrint("gracz "+Player.nick+" zakończył turę")
 	Player.food-=Player.men;
-
+	consolePrint("stracił "+Player.men+" jedzenia");
 
 	if(Player.food<0)
 	{
@@ -363,6 +365,12 @@ function end_of_turn(Player)
 	Player.men+=house.give.men*Player.house;
 	Player.stone+=house.give.stone*Player.house;
 	Player.food+=house.give.food*Player.house;
+	consolePrint("Otrzymał "+(forge.give.food*Player.forge+farm.give.food*Player.farm+house.give.food*Player.house)+" jedzenia");
+	consolePrint("Otrzymał "+(forge.give.gold*Player.forge+farm.give.gold*Player.farm+house.give.gold*Player.house)+" złota");
+	consolePrint("Otrzymał "+(forge.give.wood*Player.forge+farm.give.wood*Player.farm+house.give.wood*Player.house)+" drewna");
+	consolePrint("Otrzymał "+(forge.give.iron*Player.forge+farm.give.iron*Player.farm+house.give.iron*Player.house)+" żelaza");
+	consolePrint("Otrzymał "+(forge.give.stone*Player.forge+farm.give.stone*Player.farm+house.give.stone*Player.house)+" kamienia");
+	consolePrint("Otrzymał "+(forge.give.men*Player.forge+farm.give.men*Player.farm+house.give.men*Player.house)+" ludzi");
 
 	turn++;
 	start();
