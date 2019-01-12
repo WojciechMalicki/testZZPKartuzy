@@ -4,33 +4,7 @@ https://caritaspoznan.pl/upload/skrypt-abc-tworzenia-projektu-nowy%20(1).pdf
 
 -= 2 =-
 WSZYSTKIE mechaniki, obiekty i ich statystyki:
-budynki:
-+1farmy=> -5ludzie -20drewno +15jedzenie/ture
-+1dom=> -10drewno -10kamien +10limitLudzie
-+1koszary=> -10drewno -30kamien  +20limitArmia
-+1tartak=> -20kamien -5ludzie +10drewno/ture
-+1kamieniołom=> -20drewno -5ludzie +10kamien/ture
-+1kopalnia=> -20drewno -20kamien -10ludzie +10metal/ture
-+1magazyn=> -20drewno -10złoto -2ludzie +100miejsce na surowce
-+1szkółka_zwiadowcza=> -30drewno -10kamien -10złoto +4produkcja_szpiegów
-+1szkółka_anty-zwiadowcza=> -30drewno -10kamien -10złoto +4produkcja_anty-szpiegów
-+1chorągiew_bojowa=> -10drewno -20kamien -30złoto +10morale
-+1bastion=> -50kamien -10dewno +20defensywa
-+1świątynia=> -20kamien -20drewno -20zloto +10religia
-+1domy_kultury=> -30kamien -10drewno -30zloto +20kultura
 
-surowce:
-ludzie -jedzenie/ture (potrzebni do produkcji surowców) // dostajesz procent twoich ludzi na ture
-zbrojni -jedzenie/ture -złoto/ture (potrzebni do ataków i defensyw) 
-jedzenie
-kamienie
-drewno
-zloto
-szpidzy-zmiejszanie rozżutności zwiadu
-anty-szpiedzy
-moc żołnierzy +moc armii //pomnożona przez ilość zbrojnych zwieksza moc armii
-moc armii //oznacza siłę całkowitą armii
-morale +zbrojni/ture +moc żołnierzy //dostajesz procent zbrojnych zależny od limitu armii oraz zwiększa moc zbrojnych o 1 
 -= 3 =-
 Podział ról:
 -
