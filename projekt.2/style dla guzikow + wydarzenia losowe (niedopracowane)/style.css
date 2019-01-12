@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    font-family: 'Righteous', cursive;
+}
+#console {
+background-color: #EEE;
+margin: 1.5vh 10vw 0px 10vw;
+font-family: "Lucida Console", cursive, monospace;
+width: 70vw;
+height: 7vh;
+}
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+        "yellow yellow yellow"
+        "blue green zasoby"
+        "blue green zasoby-napis"
+        "blue green lblue"
+        "red red red";
+}
+
+#blue {
+    grid-area: blue;
+    background-color: #2A95B8;
+    width: calc(13.5vw - 5px);
+    height: calc(75vh - 10px);
+    border-bottom: 5px solid black;
+    border-top: 5px solid black;
+    border-right: 5px solid black;
+    text-align: center;
+    font-size: 40px;
+}
+
+#yellow {
+    grid-area: yellow;
+    background-color: #e08235;
+    width: calc(100vw - 5px);
+    height: calc(15vh - 5px);
+    border-bottom: 5px solid black;
+    border-left: 5px solid black;
+    text-align: center;
+    display: inline-block;
+}
+
+#green {
+    grid-area: green;
+    background-color: #f05f83;
+    width: calc(73vw - 10px);
+    height: calc(75vh - 10px);
+    border-bottom: 5px solid black;
+    border-left: 5px solid black;
+    border-top: 5px solid black;
+    border-right: 5px solid black;
+    text-align: center;
+}
+
+#lblue {
+    grid-area: lblue;
+    background-color: #2A95B8;
+    width: calc(13.5vw - 5px);
+    height: calc(58vh - 59px);
+    border-left: 5px solid black;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    text-align: center;
+    font-size: 25px;
+}
+
+#red {
+    grid-area: red;
+    background-color: #CD1D1D;
+    width: calc(100vw - 5px);
+    height: calc(10vh - 5px);
+    border-left: 5px solid black;
+    border-top: 5px solid black;
+    text-align: center;
+}
+
+#logo
+{
+    margin: auto;
+    padding-top: 2.5vh;
+    padding-bottom: 2.5vh;
+    height: 10vh;
+}
+
+#zasoby
+{
+    position: relative;
+    background-color: #CD1D1D;
+    height: calc(16vh - 5px);
+    width: calc(13.5vw - 5px);
+    border-left: 5px solid black;
+    border-bottom: 5px solid black;
+    
+    text-align: center;
+    float: right;
+    font-size: 2vh;
+}
+#zasoby-napis
+{
+    position: relative;
+    background-color: #CD1D1D;
+    height: calc(6vh - 5px);
+    width: calc(13.5vw - 5px);
+    border-left: 5px solid black;
+    
+    border-top: 5px solid black;
+    text-align: center;
+    float: right;
+    font-size: 3vh;
+}
+.build
+{
+    position: relative;
+    height: calc(2vh-3px);
+    width: calc(6vw-3px);
+    border: solid 3px black;
+    background-color: #0b9e71;
+    font-family: 'Righteous', cursive;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 3px;
+    text-align: center;
+    display: inline-block;
+}
+#end1
+{
+    margin-right: 20px;
+}
+.placeholder
+{
+    position: relative;
+    height: calc(2vh-3px);
+    width: calc(6vw-3px);
+    border: solid 3px black;
+    background-color: #0b9e71;
+    font-family: 'Righteous', cursive;
+    margin-left: 10px;
+    margin-right: 3px;
+    text-align: center;
+    display: inline-block;
+}
+
+.number
+{
+    position: relative;
+    height: calc(6vh-3px);
+    width: calc(8vw-3px);
+    border: solid 3px black;
+    background-color: #0b9e71;
+    font-family: 'Righteous', cursive;
+    margin-left: 10px;
+    margin-right: 3px;
+    text-align: center;
+    display: inline-block;
+}
