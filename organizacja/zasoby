@@ -16,12 +16,12 @@ budynki:
 surowce:
 1ludzie=> -1jedzenie/ture (potrzebni do produkcji surowców) // dostajesz procent twoich ludzi na ture
 1zbrojni=> -2jedzenie/ture -2złoto/ture (potrzebni do ataków i defensyw) 
-jedzenie
-kamienie
-drewno
-zloto
-szpidzy-zmiejszanie rozżutności zwiadu
-anty-szpiedzy
-moc żołnierzy +moc armii //pomnożona przez ilość zbrojnych zwieksza moc armii
-moc armii //oznacza siłę całkowitą armii
-morale +zbrojni/ture +moc żołnierzy //dostajesz procent zbrojnych zależny od limitu armii oraz zwiększa moc zbrojnych o 1 
+15jedzenie<=1farma/tura
+10kamienie<=1kaminialom/tura
+10drewno<=1tartak/tura
+1zloto<=1populacja/tura
+1szpiedzy=>-5%rozżutności_zwiadu
+1anty-szpiedzy=>+5%anty-zwiad
+1moc_żołnierzy=> +1moc_armii +1morale
+moc_armii //oznacza siłę całkowitą armii
+1morale=>+moc żołnierzy +flagi//dostajesz procent zbrojnych zależny od limitu armii oraz zwiększa moc zbrojnych o 1 
