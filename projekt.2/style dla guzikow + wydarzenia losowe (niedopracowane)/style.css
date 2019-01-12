@@ -155,3 +155,8 @@ height: 7vh;
     text-align: center;
     display: inline-block;
 }
+#console
+{
+    margin-left: auto;
+    margin-right: auto;
+}
