@@ -14,6 +14,9 @@ WSZYSTKIE mechaniki, obiekty i ich statystyki:
 +1szkółka_zwiadowcza=> -30drewno -10kamien -10złoto +4produkcja_szpiegów
 +1szkółka_anty-zwiadowcza=> -30drewno -10kamien -10złoto +4produkcja_anty-szpiegów
 +1chorągiew_bojowa=> -10drewno -20kamien -30złoto +10morale
++1bastion=> -50kamien -10dewno +20defensywa
++1świątynia=> -20kamien -20drewno -20zloto +10religia
++1domy_kultury=> -30kamien -10drewno -30zloto +20kultura
 -= 3 =-
 Podział ról:
 -
