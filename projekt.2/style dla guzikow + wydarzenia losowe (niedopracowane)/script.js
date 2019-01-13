@@ -8,6 +8,7 @@ var gold = 1000;
 var food = 200;
 var iron = 500;
 var men = 70;
+var random_amount = 10; //zmienna odpowiada za ilosc przypadkow
 var farm=
 {
 	cost:{food:0, gold:5, wood:20,men:5,iron:0, stone:5},
@@ -524,21 +525,21 @@ function random_effects(rand,Player)
 
 	if(rand==7)
 	{
-		document.getElementById('green').innerHTML += "<br/><br/><br/> Spotka³eœ i okrad³eœ kupca <br/> otrzyma³eœ 50 drewna 60 ¿elaza i 70 z³ota";
+		document.getElementById('green').innerHTML += "<br/><br/><br/> Spotkałeś i okradłeś kupca <br/> otrzymujesz 50 drewna 60 żelaza i 70 złota";
 		Player.wood += 50;
 		Player.iron += 60;
 		Player.gold += 70;
 	}
 	else if(rand==8)
 	{
-		document.getElementById('green').innerHTML += "<br/><br/><br/> Spotka³eœ i okrad³eœ kupca <br/> otrzyma³eœ 50 drewna 60 ¿elaza i 70 z³ota";
+		document.getElementById('green').innerHTML += "<br/><br/><br/> Spotkałeś i okradłeś kupca <br/> otrzymujesz 50 drewna 60 żelaza i 70 złota";
 		Player.wood += 50;
 		Player.iron += 60;
 		Player.gold += 70;
 	}
 	else if(rand==9)
 	{
-		document.getElementById('green').innerHTML += "<br/><br/><br/> Spotka³eœ i okrad³eœ kupca <br/> otrzyma³eœ 50 drewna 60 ¿elaza i 70 z³ota";
+		document.getElementById('green').innerHTML += "<br/><br/><br/> Spotkałeś i okradłeś kupca <br/> otrzymujesz 50 drewna 60 żelaza i 70 złota";
 		Player.wood += 50;
 		Player.iron += 60;
 		Player.gold += 70;
