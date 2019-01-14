@@ -1,4 +1,4 @@
-var consoleArray = ['gra się zaczyna<br>'];
+var consoleArray = 'gra się zaczyna<br>';
 var consoleLayout = document.getElementById("console");
 consoleLayout.innerHTML=consoleArray;
 var loadingState = 0;
@@ -59,7 +59,7 @@ function player(stn,gld,peo,nme,wod,frm,frg,hous,irn,fd,mn,nr,ttm)
 	window.addEventListener('keyup', function (e) {
     if (e.keyCode === 13&&loadingState==0) {
 player_list();
-    
+
 }else if (e.keyCode === 13&& loadingState==1) {
 	create_players();
 }}, false);
@@ -508,6 +508,6 @@ function win(Player)
 	document.getElementById('green').innerHTML = "Wygrał gracz o nicku <br/><br/>" + Player.nick;
 }
 function consolePrint(text){
-consoleArray.unshift(text+'<br>');
+consoleArray=text+'<br>'+consoleArray;
 consoleLayout.innerHTML=consoleArray;
 }

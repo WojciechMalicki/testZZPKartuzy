@@ -1,4 +1,4 @@
-var consoleArray = ['gra się zaczyna<br>'];
+var consoleArray = 'gra się zaczyna<br>';
 var consoleLayout = document.getElementById("console");
 consoleLayout.innerHTML=consoleArray;
 var loadingState = 0;
@@ -75,12 +75,21 @@ function player_list()
         write += '<input type="text" class="placeholder" id = gracz_' + i + '><br/> <br/>';
     }
     document.getElementById("green").innerHTML = 'Podaj nazwy graczy  <br/> <br/>'+ write + '<br/> <br/> <button onclick="create_players()" class="build">Akceptuj</button>';
-    }
-		loadingState=1;
+
+		loadingState=1;} else {
+			consolePrint('musisz podać liczbe wiekszą od 1 i mniejszą lub równą 4')
+			return 0;
+		}
 }
 
 function create_players()
 {
+	for (var i = 0; i < player_number; i++) {
+		if (document.getElementById('gracz_'+i).value===null||document.getElementById('gracz_'+i).value==='') {
+			consolePrint('musisz podać nazwę gracza '+(i+1));
+			return 0;
+    }
+	}
     for(i=0;i<player_number;i++)
     {
     	playerNames = "";
@@ -128,8 +137,8 @@ function start()
 	            document.getElementById("green").innerHTML = "Tura gracza o nicku: <br/> <br/>" + Player1.nick+"<br/><br/>";
 	            document.getElementById("green").innerHTML += '<input type="button" value="zbuduj budynek" class="build" onclick="building_menu(Player1)"><br/><br/>';
 	            document.getElementById("green").innerHTML += '<input type="button" value="zakończ ture" class="build" onclick="end_of_turn(Player1)"><br/><br/>';
-	            var random = Math.floor((Math.random() * random_amount) + 1);
-	            random_effects(random,Player1);
+
+	            random_effects(random_int(random_amount),Player1);
 	            write_buildings(Player1.farm,Player1.forge,Player1.house,Player1.totem);
 	            write_resource(Player1.wood,Player1.gold,Player1.stone,Player1.men,Player1.food,Player1.iron);
 	            turn=2;
@@ -139,8 +148,7 @@ function start()
 	            document.getElementById("green").innerHTML = "Tura gracza o nicku: <br/> <br/>" + Player2.nick+"<br/><br/>";
 	            document.getElementById("green").innerHTML += '<input type="button" value="zbuduj budynek" class="build" onclick="building_menu(Player2)"><br/><br/>';
 	            document.getElementById("green").innerHTML += '<input type="button" value="zakończ ture" class="build" onclick="end_of_turn(Player2)"><br/><br/>';
-	            var random = Math.floor((Math.random() * random_amount) + 1);
-	            random_effects(random,Player2);
+	            random_effects(random_int(random_amount),Player2);
 	            write_buildings(Player2.farm,Player2.forge,Player2.house,Player2.totem);
 	            write_resource(Player2.wood,Player2.gold,Player2.stone,Player2.men,Player2.food,Player2.iron);
 	            turn=3;
@@ -151,8 +159,7 @@ function start()
 	            document.getElementById("green").innerHTML = "Tura gracza o nicku: <br/> <br/>" + Player3.nick+"<br/><br/>";
 	            document.getElementById("green").innerHTML += '<input type="button" value="zbuduj budynek" class="build" onclick="building_menu(Player3)"><br/><br/>';
 	            document.getElementById("green").innerHTML += '<input type="button" value="zakończ ture" class="build" onclick="end_of_turn(Player3)"><br/><br/>';
-	            var random = Math.floor((Math.random() * random_amount) + 1);
-	            random_effects(random,Player3);
+	            random_effects(random_int(random_amount),Player3);
 	            write_buildings(Player3.farm,Player3.forge,Player3.house,Player3.totem);
 	            write_resource(Player3.wood,Player3.gold,Player3.stone,Player3.men,Player3.food,Player3.iron);
 	            turn=0;
@@ -162,8 +169,7 @@ function start()
 	            document.getElementById("green").innerHTML = "Tura gracza o nicku: <br/> <br/>" + Player0.nick+"<br/><br/>";
 	            document.getElementById("green").innerHTML += '<input type="button" value="zbuduj budynek" class="build" onclick="building_menu(Player0)"><br/><br/>';
 	            document.getElementById("green").innerHTML += '<input type="button" value="zakończ ture" class="build" onclick="end_of_turn(Player0)"><br/><br/>';
-	            var random = Math.floor((Math.random() * random_amount) + 1);
-	            random_effects(random,Player0);
+	            random_effects(random_int(random_amount),Player0);
 	            write_buildings(Player0.farm,Player0.forge,Player0.house,Player0.totem);
 	            write_resource(Player0.wood,Player0.gold,Player0.stone,Player0.men,Player0.food,Player0.iron);
 	            turn=1;
@@ -178,8 +184,7 @@ function start()
 	            document.getElementById("green").innerHTML = "Tura gracza o nicku: <br/> <br/>" + Player1.nick+"<br/><br/>";
 	            document.getElementById("green").innerHTML += '<input type="button" value="zbuduj budynek" class="build" onclick="building_menu(Player1)"><br/><br/>';
 	            document.getElementById("green").innerHTML += '<input type="button" value="zakończ ture" class="build" onclick="end_of_turn(Player1)"><br/><br/>';
-	            var random = Math.floor((Math.random() * random_amount) + 1);
-	            random_effects(random,Player1);
+	            random_effects(random_int(random_amount),Player1);
 	            write_buildings(Player1.farm,Player1.forge,Player1.house,Player1.totem);
 	            write_resource(Player1.wood,Player1.gold,Player1.stone,Player1.men,Player1.food,Player1.iron);
 	            turn=2;
@@ -190,8 +195,7 @@ function start()
 	            document.getElementById("green").innerHTML = "Tura gracza o nicku: <br/> <br/>" + Player2.nick+"<br/><br/>";
 	            document.getElementById("green").innerHTML += '<input type="button" value="zbuduj budynek" class="build" onclick="building_menu(Player2)"><br/><br/>';
 	            document.getElementById("green").innerHTML += '<input type="button" value="zakończ ture" class="build" onclick="end_of_turn(Player2)"><br/><br/>';
-	            var random = Math.floor((Math.random() * random_amount) + 1);
-	            random_effects(random,Player2);
+	            random_effects(random_int(random_amount),Player2);
 	            write_buildings(Player2.farm,Player2.forge,Player2.house,Player2.totem);
 	            write_resource(Player2.wood,Player2.gold,Player2.stone,Player2.men,Player2.food,Player2.iron);
 	            turn=0;
@@ -201,8 +205,7 @@ function start()
 	            document.getElementById("green").innerHTML = "Tura gracza o nicku: <br/> <br/>" + Player0.nick+"<br/><br/>";
 	            document.getElementById("green").innerHTML += '<input type="button" value="zbuduj budynek" class="build" onclick="building_menu(Player0)"><br/><br/>';
 	            document.getElementById("green").innerHTML += '<input type="button" value="zakończ ture" class="build" onclick="end_of_turn(Player0)"><br/><br/>';
-	            var random = Math.floor((Math.random() * random_amount) + 1);
-	            random_effects(random,Player0);
+	            random_effects(random_int(random_amount),Player0);
 	            write_buildings(Player0.farm,Player0.forge,Player0.house,Player0.totem);
 	            write_resource(Player0.wood,Player0.gold,Player0.stone,Player0.men,Player0.food,Player0.iron);
 	            turn=1;
@@ -216,8 +219,7 @@ function start()
 	            document.getElementById("green").innerHTML = "Tura gracza o nicku: <br/> <br/>" + Player1.nick+"<br/><br/>";
 	            document.getElementById("green").innerHTML += '<input type="button" value="zbuduj budynek" class="build" onclick="building_menu(Player1)"><br/><br/>';
 	            document.getElementById("green").innerHTML += '<input type="button" value="zakończ ture" class="build" onclick="end_of_turn(Player1)"><br/><br/>';
-	            var random = Math.floor((Math.random() * random_amount) + 1);
-	            random_effects(random,Player1);
+	            random_effects(random_int(random_amount),Player1);
 	            write_buildings(Player1.farm,Player1.forge,Player1.house,Player1.totem);
 	            write_resource(Player1.wood,Player1.gold,Player1.stone,Player1.men,Player1.food,Player1.iron);
 	            turn=0;
@@ -227,8 +229,7 @@ function start()
 	            document.getElementById("green").innerHTML = "Tura gracza o nicku: <br/> <br/>" + Player0.nick+"<br/><br/>";
 	            document.getElementById("green").innerHTML += '<input type="button" value="zbuduj budynek" class="build" onclick="building_menu(Player0)"><br/><br/>';
 	            document.getElementById("green").innerHTML += '<input type="button" value="zakończ ture" class="build" onclick="end_of_turn(Player0)"><br/><br/>';
-	            var random = Math.floor((Math.random() * random_amount) + 1);
-	            random_effects(random,Player0);
+	            random_effects(random_int(random_amount),Player0);
 	            write_buildings(Player0.farm,Player0.forge,Player0.house,Player0.totem);
 	            write_resource(Player0.wood,Player0.gold,Player0.stone,Player0.men,Player0.food,Player0.iron);
 	            turn=1;
@@ -525,36 +526,38 @@ function win(Player)
 	document.getElementById('green').innerHTML = "Wygrał gracz o nicku <br/><br/>" + Player.nick;
 }
 function consolePrint(text){
-consoleArray.unshift(text+'<br>');
+consoleArray=text+'<br>'+consoleArray;
 consoleLayout.innerHTML=consoleArray;
 }
 function random_effects(rand,Player)
 {
-	alert(rand);
-
 	if(rand==7)
 	{
-		document.getElementById('green').innerHTML += "<br/><br/><br/> Spotkałeś i okradłeś kupca <br/> otrzymujesz 50 drewna 60 żelaza i 70 złota";
-		Player.wood += 50;
-		Player.iron += 60;
-		Player.gold += 70;
+		create_Event("Spotkałeś i okradłeś kupca <br/> otrzymujesz 50 drewna 60 żelaza i 70 złota", 0, 70, 50, 0, 60, 0);
 	}
 	else if(rand==8)
 	{
-		document.getElementById('green').innerHTML += "<br/><br/><br/> Spotkałeś i okradłeś kupca <br/> otrzymujesz 50 drewna 60 żelaza i 70 złota";
-		Player.wood += 50;
-		Player.iron += 60;
-		Player.gold += 70;
+		create_Event("Spotkałeś i okradłeś kupca <br/> otrzymujesz 50 drewna 60 żelaza i 70 złota", 0, 70, 50, 0, 60, 0);
 	}
 	else if(rand==9)
 	{
-		document.getElementById('green').innerHTML += "<br/><br/><br/> Spotkałeś i okradłeś kupca <br/> otrzymujesz 50 drewna 60 żelaza i 70 złota";
-		Player.wood += 50;
-		Player.iron += 60;
-		Player.gold += 70;
+		create_Event("Spotkałeś i okradłeś kupca <br/> otrzymujesz 50 drewna 60 żelaza i 70 złota", 0, 70, 50, 0, 60, 0);
 	}
 	else if(rand==10)
 	{
-
+		create_Event("Spotkałeś i okradłeś kupca <br/> otrzymujesz 50 drewna 60 żelaza i 70 złota", 0, 70, 50, 0, 60, 0);
 	}
+}
+function create_Event(text, food, gold, wood, men, iron, stone) {
+	document.getElementById('green').innerHTML += "<br/><br/><br/>" + text ;
+	Player.food += food;
+	Player.gold += gold;
+	Player.wood += wood;
+	Player.men += men;
+	Player.iron += iron;
+	Player.stone += stone;
+}
+function random_int(amount) {
+	var random = Math.floor((Math.random() * random_amount) + 1);
+	return random;
 }
