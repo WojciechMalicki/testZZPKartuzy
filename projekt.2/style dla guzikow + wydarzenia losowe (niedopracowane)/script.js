@@ -1,6 +1,7 @@
 var consoleArray = ['gra się zaczyna<br>'];
 var consoleLayout = document.getElementById("console");
 consoleLayout.innerHTML=consoleArray;
+var loadingState = 0;
 var wood = 100;
 var stone = 100;
 var people = 3000;
@@ -13,18 +14,18 @@ var farm=
 {
 	cost:{food:0, gold:5, wood:20,men:5,iron:0, stone:5},
 	give:{food:5, gold:5, wood:20,men:0,iron:0,stone:0},
-	
+
 };
 var forge=
 {
 	cost:{food:8, gold:5, wood:5,men:3,iron:0, stone:20},
 	give:{food:0, gold:0, wood:0,men:0,iron:10, stone:0},
-	
+
 };
 var house={
 	cost:{food:5, gold:5, wood:20,men:0,iron:3,stone:10},
 	give:{food:0, gold:0, wood:0,men:5,iron:0,stone:0},
-	
+
 };
 var totem={
 	cost:{food:75,gold:200,wood:453,men:67,iron:56,stone:46},
@@ -56,6 +57,13 @@ function player(stn,gld,peo,nme,wod,frm,frg,hous,irn,fd,mn,nr,ttm)
 	this.number = nr;//zmienna wprowadzona do użycia nazwy objektu np. Player0 w onclicku linijki 243
 }
 
+window.addEventListener('keyup', function (e) {
+	if (e.keyCode === 13&&loadingState==0) {
+player_list();
+
+}else if (e.keyCode === 13&& loadingState==1) {
+create_players();
+}}, false);
 
 function player_list()
 {
@@ -68,6 +76,7 @@ function player_list()
     }
     document.getElementById("green").innerHTML = 'Podaj nazwy graczy  <br/> <br/>'+ write + '<br/> <br/> <button onclick="create_players()" class="build">Akceptuj</button>';
     }
+		loadingState=1;
 }
 
 function create_players()
@@ -86,19 +95,19 @@ function create_players()
         {
 
             var nick1 = document.getElementById("gracz_"  + i).value;
-            Player1 = new player(stone,gold,people,nick1,wood,0,0,0,iron,food,men,1,0);  
+            Player1 = new player(stone,gold,people,nick1,wood,0,0,0,iron,food,men,1,0);
             write_players(Player1);
         }
         if(i==2)
         {
             var nick2 = document.getElementById("gracz_"  + i).value;
-            Player2 = new player(stone,gold,people,nick2,wood,0,0,0,iron,food,men,2,0);  
+            Player2 = new player(stone,gold,people,nick2,wood,0,0,0,iron,food,men,2,0);
             write_players(Player2);
         }
         if(i==3)
         {
             var nick3 = document.getElementById("gracz_"  + i).value;
-            Player3 = new player(stone,gold,people,nick3,wood,0,0,0,iron,food,men,3,0);  
+            Player3 = new player(stone,gold,people,nick3,wood,0,0,0,iron,food,men,3,0);
             write_players(Player3);
 
         }
@@ -110,7 +119,7 @@ function create_players()
 
 function start()
 {
-    	
+
     	consolePrint("rozpoczyna się tura "+turn)
     	if(player_number==4)
     	{
@@ -135,7 +144,7 @@ function start()
 	            write_buildings(Player2.farm,Player2.forge,Player2.house,Player2.totem);
 	            write_resource(Player2.wood,Player2.gold,Player2.stone,Player2.men,Player2.food,Player2.iron);
 	            turn=3;
-	            
+
 	        }
 	        else if(turn==4)
 	        {
@@ -146,7 +155,7 @@ function start()
 	            random_effects(random,Player3);
 	            write_buildings(Player3.farm,Player3.forge,Player3.house,Player3.totem);
 	            write_resource(Player3.wood,Player3.gold,Player3.stone,Player3.men,Player3.food,Player3.iron);
-	            turn=0;	        
+	            turn=0;
 	        }
 	        else
 	        {
@@ -174,7 +183,7 @@ function start()
 	            write_buildings(Player1.farm,Player1.forge,Player1.house,Player1.totem);
 	            write_resource(Player1.wood,Player1.gold,Player1.stone,Player1.men,Player1.food,Player1.iron);
 	            turn=2;
-	           
+
 	        }
 	        else if(turn==3)
 	        {
@@ -197,7 +206,7 @@ function start()
 	            write_buildings(Player0.farm,Player0.forge,Player0.house,Player0.totem);
 	            write_resource(Player0.wood,Player0.gold,Player0.stone,Player0.men,Player0.food,Player0.iron);
 	            turn=1;
-	            
+
 	        }
     	}
     	if(player_number==2)
@@ -223,7 +232,7 @@ function start()
 	            write_buildings(Player0.farm,Player0.forge,Player0.house,Player0.totem);
 	            write_resource(Player0.wood,Player0.gold,Player0.stone,Player0.men,Player0.food,Player0.iron);
 	            turn=1;
-	            
+
 	        }
     	}
     	if(player_number==1)
@@ -249,7 +258,7 @@ function write_resource(wood,gold,stone,men,food,iron)
 	var sign1 = wood + " drewna  <br/>" + stone + " kamieni  <br/>" + gold + " złota <br/>" + men + " ludzi <br/> " + iron + " żelaza <br/> " + food + " jedzenia <br/>";
     document.getElementById("zasoby").innerHTML = sign1;
 }
-//funkcja wywoływana przy kliknięciu guzika "zakończ turę" 
+//funkcja wywoływana przy kliknięciu guzika "zakończ turę"
 function end_of_turn(Player)
 {
 	//odjęcie jedzenia w zależności od ilości ludzi
@@ -279,9 +288,9 @@ function end_of_turn(Player)
 				write_players(Player1);
 				write_players(Player2);
 				turn--;
-		
+
 			}
-			
+
 			else if(Player.number==0)
 			{
 				player_number--;
@@ -293,9 +302,9 @@ function end_of_turn(Player)
 				write_players(Player2);
 				turn--;
 
-		
+
 			}
-			
+
 			else if(Player.number==1)
 			{
 				player_number--;
@@ -308,7 +317,7 @@ function end_of_turn(Player)
 
 			}
 		}
-		
+
 		else if(player_number==3)
 		{
 			if(Player.number==2)
@@ -336,9 +345,9 @@ function end_of_turn(Player)
 				write_players(Player1);
 				turn--;
 			}
-		
+
 		}
-		
+
 		else if(player_number==2)
 		{
 			if(Player.number==0)
@@ -347,14 +356,14 @@ function end_of_turn(Player)
 
 				change_player(Player0,Player1);
 				write_players(Player0);
-				
+
 			}
 			else if(Player.number==1)
 			{
 				player_number--;
 				clear_players();
 				write_players(Player0);
-				
+
 			}
 		}
 	}
@@ -393,7 +402,7 @@ function end_of_turn(Player)
 
 	turn++;
 	start();
-	
+
 
 }
 
@@ -402,7 +411,7 @@ function end_of_turn(Player)
 function building_menu(player)
 {
 	posibilities = "LISTA TWOICH MOŻLIWOŚCI <br/> <br/>";
-	var obj = 
+	var obj =
 	JSON.stringify(player.number);
  	   if(player.wood>=farm.cost.wood && player.food>=farm.cost.food && player.men>= farm.cost.men && player.gold >= farm.cost.gold && player.iron>=farm.cost.iron && player.stone >= farm.cost.stone)
  	   {
@@ -546,6 +555,6 @@ function random_effects(rand,Player)
 	}
 	else if(rand==10)
 	{
-		
+
 	}
 }
