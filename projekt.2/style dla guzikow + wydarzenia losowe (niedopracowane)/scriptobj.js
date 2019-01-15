@@ -1,7 +1,7 @@
 /*
 OBIEKTOWA WERSJA GRY revOmeaG
 BY: ZzP 2018/2019 INF
-VERSION: 3.0 (WERSJĘ PROSZĘ ZMIENIAĆ PRZY MODYFIKACJACH)
+VERSION: 3.1 (WERSJĘ PROSZĘ ZMIENIAĆ PRZY MODYFIKACJACH)
 */
 var consoleArray = 'gra się zaczyna<br>';
 var consoleLayout = document.getElementById("console");
@@ -106,6 +106,11 @@ function create_player(number, name) {
 }
 function start()
 {
+  if(player_number==1)
+  {
+    win();
+    return 0;
+  }
 consolePrint("rozpoczyna się tura "+completed_turns)
 document.getElementById("green").innerHTML = "Tura gracza o nicku: <br/> <br/>" + Players[turn].nick+"<br/><br/>";
 document.getElementById("green").innerHTML += '<input type="button" value="zbuduj budynek" class="build" onclick="building_menu()"><br/><br/>';
@@ -146,6 +151,7 @@ function win()
 }
 function end_of_turn()
 {
+
 	//odjęcie jedzenia w zależności od ilości ludzi
 	consolePrint("gracz "+Players[turn].nick+" zakończył turę")
 	Players[turn].food-=Players[turn].men;
@@ -153,6 +159,7 @@ function end_of_turn()
 
 	if(Players[turn].food<0)
 	{Players.splice(turn,1);
+    player_number--;
   clear_players();
   write_players();
   completed_turns++;
@@ -185,10 +192,12 @@ function end_of_turn()
 	consolePrint("Otrzymał "+(forge.give.iron*Players[turn].forge+farm.give.iron*Players[turn].farm+house.give.iron*Players[turn].house)+" żelaza");
 	consolePrint("Otrzymał "+(forge.give.stone*Players[turn].forge+farm.give.stone*Players[turn].farm+house.give.stone*Players[turn].house)+" kamienia");
 	consolePrint("Otrzymał "+(forge.give.men*Players[turn].forge+farm.give.men*Players[turn].farm+house.give.men*Players[turn].house)+" ludzi");
-
-	turn++;
+if(turn=player_number){
+  turn=0;
+}else{
+  turn++;}
   completed_turns++;
-	start();
+	setTimeout(start(), 1000);
 }}
 function building_menu()
 {
