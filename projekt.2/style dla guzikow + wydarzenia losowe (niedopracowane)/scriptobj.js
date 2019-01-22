@@ -1,7 +1,7 @@
 /*
 OBIEKTOWA WERSJA GRY revOmeaG
 BY: ZzP 2018/2019 INF
-VERSION: 3.1.1 (WERSJĘ PROSZĘ ZMIENIAĆ PRZY MODYFIKACJACH)
+VERSION: 3.1.2 (WERSJĘ PROSZĘ ZMIENIAĆ PRZY MODYFIKACJACH)
 */
 var consoleArray = 'gra się zaczyna<br>';
 var consoleLayout = document.getElementById("console");
@@ -106,7 +106,7 @@ function create_player(number, name) {
 }
 function start()
 {
-  if(player_number==1)
+  if(player_number===1)
   {
     win();
     return 0;
@@ -192,8 +192,9 @@ function end_of_turn()
 	consolePrint("Otrzymał "+(forge.give.iron*Players[turn].forge+farm.give.iron*Players[turn].farm+house.give.iron*Players[turn].house)+" żelaza");
 	consolePrint("Otrzymał "+(forge.give.stone*Players[turn].forge+farm.give.stone*Players[turn].farm+house.give.stone*Players[turn].house)+" kamienia");
 	consolePrint("Otrzymał "+(forge.give.men*Players[turn].forge+farm.give.men*Players[turn].farm+house.give.men*Players[turn].house)+" ludzi");
-if(turn===player_number){
+if(turn===(player_number-1)){
   turn=0;
+	completed_turns++;
 }else{
   turn++;}
   completed_turns++;
