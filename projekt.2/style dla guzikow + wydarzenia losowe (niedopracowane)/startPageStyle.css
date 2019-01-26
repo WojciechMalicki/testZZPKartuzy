@@ -1,3 +1,7 @@
+/*
+REVOEMAG STARTING PAGE'S STYLE
+BY: ZzP 2018/2019 INF
+VERSION: 1.1*/
 .buttonGreen {
   background-color: #4ba24e;
   border: none;
@@ -7,7 +11,19 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-radius: 1.5px;
 }
 .loginButtons{
   padding: 7px 16px;
+}
+.leftMenu{
+  width:133px;
+}
+#UserloginOptionsDiv{
+  width: 155px;
+  float: right;
+  top: 0px;
+}
+#topDiv{
+  height: 32px;
 }

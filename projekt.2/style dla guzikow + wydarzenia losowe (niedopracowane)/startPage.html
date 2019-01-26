@@ -1,42 +1,52 @@
 <!DOCTYPE html>
-<html lang="pl" dir="ltr">
-<head>
+<!--
+REVOEMAG STARTING PAGE
+BY: ZzP 2018/2019 INF
+VERSION: 1.1   -->
+<html lang="pl" dir="ltr" id="html">
+<head id="head">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>revOmeaG</title>
-    <link rel="icon" type="image/png" href="./Logomini.png">
+    <title id="title">revOmeaG</title>
+    <link id="icon" rel="icon" type="image/png" href="./Logomini.png">
 
     <meta name="description" content="Internet game - revOmeaG" />
     <meta name="keywords" content="revOmeaG" />
     <link href="https://fonts.googleapis.com/css?family=Righteous|Sedgwick+Ave" rel="stylesheet">
     <link rel="stylesheet" href="startPageStyle.css">
 </head>
-  <body>
-    <div id="top" id="topDiv">
-      <div id="UserloginOptionsDiv" dir="rtl">
+  <body id="body">
+    <div id="topDiv">
+      <span id="leftPartOfTop" class="leftMenu" >
+        <span id="infosMenu" class="leftMenu">
+          <button  id="infosMenuButton" type="button" class="buttonGreen loginButtons" onclick="Dropdown()">Menu</button>
+          <span id="infosMenuSpan"></span>
+        </span>
+      </span>
+      <span id="UserloginOptionsDiv" dir="rtl">
         <span id="loginSpan">
           <button class="buttonGreen loginButtons" id="loginButton" type="button" name="login" onclick="login()">login</button>
         </span>
         <span id="singupSpan">
           <button class="buttonGreen loginButtons" id="singupButton" type="button" name="singup" onclick="singup()">sing up</button>
         </span>
-      </div>
+      </span>
     </div>
-    <hr>
+    <hr id="hrDividionTopAndMain">
     <div id="main">
       <center id="mainCenter">
       <div id="startPart">
         <div id="revOmeaGImg">
-          <img src="https://raw.githubusercontent.com/WojciechMalicki/testZZPKartuzy/master/grafika/Kolejna%2C%20ale%20nie%20ostatnia%20wersja.png">
+          <img id="revoemagLogoMainBig"  src="https://raw.githubusercontent.com/WojciechMalicki/testZZPKartuzy/master/grafika/Kolejna%2C%20ale%20nie%20ostatnia%20wersja.png">
         </div>
         <div id="startButtonDiv">
           <form action="http://revoemag.cba.pl/" id="startButtonAction">
-              <input type="submit" value="start game" id="startButtonInput" class="buttonGreen"/>
+            <input type="submit" value="start game" id="startButtonInput" class="buttonGreen startButon"/>
           </form>
         </div>
-        <div id="informations">
-          <span id="informationsSpan"></span>
+        <div id="informationsPanelMain">
+          <span id="informationsMainSpan"></span>
         </div>
       </div>
     </center>
