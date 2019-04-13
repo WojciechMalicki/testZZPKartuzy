@@ -3,6 +3,7 @@ OBIEKTOWA WERSJA GRY revOmeaG
 BY: ZzP 2018/2019 INF
 VERSION: 3.1.2 (WERSJĘ PROSZĘ ZMIENIAĆ PRZY MODYFIKACJACH)
 */
+let green = document.getElementById('green');
 var consoleArray = 'gra się zaczyna<br>';
 var consoleLayout = document.getElementById("console");
 consoleLayout.innerHTML=consoleArray;
@@ -101,7 +102,10 @@ function create_player(number, name) {
     farm:0,
     forge:0,
     house:0,
-    totem:0
+    totem:0,
+		soliders:0,
+		baracks:0,
+		defbuilding:0
   }
 }
 function start()
@@ -211,15 +215,15 @@ function building_menu()
  	   }
        if(Players[turn].wood>=forge.cost.wood && Players[turn].food>=forge.cost.food && Players[turn].men>= forge.cost.men && Players[turn].gold >= forge.cost.gold && Players[turn].iron>=forge.cost.iron && Players[turn].stone >= forge.cost.stone)
  	   {
- 	   		posibilities += '<input type="button" class="build" value="Zbuduj kuźnie" onclick="build(1)" style="margin-right:20px;"><input type="button" id="Opis1" value="Opis" onclick="description(1)"> ';
+ 	   		posibilities += '<input type="button" class="build" value="Zbuduj kuźnie" onclick="build(1)" style="margin-right:20px;"><input type="button" id="Opis2" value="Opis" onclick="description(1)"> ';
  	   }
  	   if(Players[turn].wood>=house.cost.wood && Players[turn].food>=house.cost.food && Players[turn].men>= house.cost.men && Players[turn].gold >= house.cost.gold && Players[turn].iron>=house.cost.iron && Players[turn].stone >= house.cost.stone)
  	   {
- 	   		posibilities += '<input type="button" class="build" value="Zbuduj dom" onclick="build(2)" style="float: right; margin-right:20px;"> <input type="button" id="Opis1" value="Opis" onclick="description(2)"> <br/><br/><br/>';
+ 	   		posibilities += '<input type="button" class="build" value="Zbuduj dom" onclick="build(2)" style="float: right; margin-right:20px;"> <input type="button" id="Opis2" value="Opis" onclick="description(2)"> <br/><br/><br/>';
  	   }
  	   if(Players[turn].wood>=totem.cost.wood && Players[turn].food>=totem.cost.food && Players[turn].men>= totem.cost.men && Players[turn].gold >= totem.cost.gold && Players[turn].iron>=totem.cost.iron && Players[turn].stone >= totem.cost.stone)
  	   {
- 	   		posibilities += '<input type="button" class="build" value="Zbuduj totem" onclick="build(3)" style="margin:auto;"><input type="button" id="Opis1" value="Opis" onclick="description(3)"> <br/><br/><br/>';
+ 	   		posibilities += '<input type="button" class="build" value="Zbuduj totem" onclick="build(3)" style="margin:auto;"><input type="button" id="Opis4" value="Opis" onclick="description(3)"> <br/><br/><br/>';
  	   }
  	   posibilities += '<input type="button" value="zakończ ture" class="build" onclick="end_of_turn()"><br/><br/>';
  	   document.getElementById("green").innerHTML = posibilities;
