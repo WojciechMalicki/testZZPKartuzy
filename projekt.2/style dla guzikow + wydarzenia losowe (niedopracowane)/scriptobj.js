@@ -316,20 +316,71 @@ function description(id)
 	if(id==0)
 	{
 
-		/*document.getElementById("green").innerHTML="Kosztuje:         Na turę daje: <br/>" 
+		/*document.getElementById("green").innerHTML="Kosztuje:         Na turę daje: <br/>"
 		+ farm.cost.gold + " złota         " + farm.give.food + "jedzenia <br/>"
 		+ farm.cost.wood + " drewna        " + farm.give.gold + "złota <br/>"
 		+ farm.cost.men + " ludzi         " + farm.give.wood + "drewna <br/>"
 		+ farm.cost.stone + " kamienia <br/>";*/
-		var kosztuje = "Kosztuje <br/>" 
+		var kosztuje = "Kosztuje <br/>"
 		+ farm.cost.gold + " złota <br/>"
 		+ farm.cost.wood + " drewna  <br/>"
 		+ farm.cost.men + " ludzi <br/>"
 		+ farm.cost.stone + " kamienia <br/>";
+		+ farm.cost.iron +" żelaza <br>"
+		+ farm.cost.food + " jedzenia <br/>";
 		var daje = "Na turę daje: <br/>"
-		+ farm.give.food + " jedzenia <br/>"
 		+ farm.give.gold + " złota <br/>"
-		+ farm.give.wood + " drewna <br/>";
+		+ farm.give.wood + " drewna  <br/>"
+		+ farm.give.men + " ludzi <br/>"
+		+ farm.give.stone + " kamienia <br/>";
+		+ farm.give.iron +" żelaza <br>"
+		+ farm.give.food + " jedzenia <br/>";
+	}else if(id===1){
+		var kosztuje = "Kosztuje <br/>"
+		+ forge.cost.gold + " złota <br/>"
+		+ forge.cost.wood + " drewna  <br/>"
+		+ forge.cost.men + " ludzi <br/>"
+		+ forge.cost.stone + " kamienia <br/>";
+		+ forge.cost.iron +" żelaza <br>"
+		+ forge.cost.food + " jedzenia <br/>";
+		var daje = "Na turę daje: <br/>"
+		+ forge.give.gold + " złota <br/>"
+		+ forge.give.wood + " drewna  <br/>"
+		+ forge.give.men + " ludzi <br/>"
+		+ forge.give.stone + " kamienia <br/>";
+		+ forge.give.iron +" żelaza <br>"
+		+ forge.give.food + " jedzenia <br/>";
+	}else if(id===2){
+		var kosztuje = "Kosztuje <br/>"
+		+ house.cost.gold + " złota <br/>"
+		+ house.cost.wood + " drewna  <br/>"
+		+ house.cost.men + " ludzi <br/>"
+		+ house.cost.stone + " kamienia <br/>";
+		+ house.cost.iron +" żelaza <br>"
+		+ house.cost.food + " jedzenia <br/>";
+		var daje = "Na turę daje: <br/>"
+		+ house.give.gold + " złota <br/>"
+		+ house.give.wood + " drewna  <br/>"
+		+ house.give.men + " ludzi <br/>"
+		+ house.give.stone + " kamienia <br/>";
+		+ house.give.iron +" żelaza <br>"
+		+ house.give.food + " jedzenia <br/>";
+	}else if(id===3){
+		var kosztuje = "Kosztuje <br/>"
+		+ totem.cost.gold + " złota <br/>"
+		+ totem.cost.wood + " drewna  <br/>"
+		+ totem.cost.men + " ludzi <br/>"
+		+ totem.cost.stone + " kamienia <br/>";
+		+ totem.cost.iron +" żelaza <br>"
+		+ totem.cost.food + " jedzenia <br/>";
+		var daje = "Na turę daje: <br/>"
+		+ totem.give.gold + " złota <br/>"
+		+ totem.give.wood + " drewna  <br/>"
+		+ totem.give.men + " ludzi <br/>"
+		+ totem.give.stone + " kamienia <br/>";
+		+ totem.give.iron +" żelaza <br>"
+		+ totem.give.food + " jedzenia <br/>";
 	}
+
 	document.getElementById("green").innerHTML = '<div id="kosztuje">' + kosztuje + '</div> <div id="masnoni">' + daje + '</div><div id="powrot"><input type="button" class="build" value="powrót" id="back" onclick="building_menu()"</div>';
 }
