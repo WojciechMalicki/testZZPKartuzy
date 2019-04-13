@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: 'Righteous', cursive;
+    font-size: 20px;
 }
 #console {
 background-color: #EEE;
@@ -113,15 +114,16 @@ height: 7vh;
 .build
 {
     position: relative;
-    height: calc(2vh-3px);
-    width: calc(6vw-3px);
+    height: 50px;
+    width: 200px;
     border: solid 3px black;
     background-color: #0b9e71;
     font-family: 'Righteous', cursive;
-    cursor: pointer;
+    font-size: 20px;
     margin-left: 10px;
     margin-right: 3px;
     text-align: center;
+    cursor: pointer;
     display: inline-block;
 }
 #end1
@@ -131,11 +133,12 @@ height: 7vh;
 .placeholder
 {
     position: relative;
-    height: calc(2vh-3px);
+    height: 50px;
     width: calc(6vw-3px);
     border: solid 3px black;
     background-color: #0b9e71;
     font-family: 'Righteous', cursive;
+    font-size: 20px;
     margin-left: 10px;
     margin-right: 3px;
     text-align: center;
@@ -145,7 +148,7 @@ height: 7vh;
 .number
 {
     position: relative;
-    height: calc(6vh-3px);
+    height: 46.5px;
     width: calc(8vw-3px);
     border: solid 3px black;
     background-color: #0b9e71;
@@ -159,4 +162,24 @@ height: 7vh;
 {
     margin-left: auto;
     margin-right: auto;
+}
+#kosztuje
+{
+    float:left;
+    width: calc(36.5vw - 10px);
+    height: 32.5vw;
+    border-right: 10px solid black;
+    font-size: 40px;
+}
+#masnoni
+{
+    
+    text-align: center;
+    height: 32.5vw;
+    border-bottom: 10px solid black;
+    font-size: 40px;
+}
+#back
+{
+    margin-top: 15px;
 }
