@@ -207,7 +207,7 @@ function building_menu()
 	JSON.stringify(Players[turn].number);
  	   if(Players[turn].wood>=farm.cost.wood && Players[turn].food>=farm.cost.food && Players[turn].men>= farm.cost.men && Players[turn].gold >= farm.cost.gold && Players[turn].iron>=farm.cost.iron && Players[turn].stone >= farm.cost.stone)
  	   {
- 	   		posibilities += '<input type="button" class="build" value="Zbuduj farme" onclick="build(0)" style="float:left; margin-left: 20px;">';
+ 	   		posibilities += '<input type="button" class="build" value="Zbuduj farmę" onclick="build(0)" style="float:left; margin-left: 20px;"><input type="button" id="Opis1" value="Opis" onclick="description(0)"> ';
  	   }
        if(Players[turn].wood>=forge.cost.wood && Players[turn].food>=forge.cost.food && Players[turn].men>= forge.cost.men && Players[turn].gold >= forge.cost.gold && Players[turn].iron>=forge.cost.iron && Players[turn].stone >= forge.cost.stone)
  	   {
@@ -215,7 +215,7 @@ function building_menu()
  	   }
  	   if(Players[turn].wood>=house.cost.wood && Players[turn].food>=house.cost.food && Players[turn].men>= house.cost.men && Players[turn].gold >= house.cost.gold && Players[turn].iron>=house.cost.iron && Players[turn].stone >= house.cost.stone)
  	   {
- 	   		posibilities += '<input type="button" class="build" value="Zbuduj dom" onclick="build(2)" style="float: right; margin-right:20px;"><br/><br/><br/>';
+ 	   		posibilities += '<input type="button" class="build" value="Zbuduj dom" onclick="build(2)" style="float: right; margin-right:20px;"> <br/><br/><br/>';
  	   }
  	   if(Players[turn].wood>=totem.cost.wood && Players[turn].food>=totem.cost.food && Players[turn].men>= totem.cost.men && Players[turn].gold >= totem.cost.gold && Players[turn].iron>=totem.cost.iron && Players[turn].stone >= totem.cost.stone)
  	   {
@@ -310,4 +310,26 @@ function create_Event(text, food, gold, wood, men, iron, stone) {
 function random_int(amount) {
 	var random = Math.floor((Math.random() * random_amount) + 1);
 	return random;
+}
+function description(id)
+{
+	if(id==0)
+	{
+
+		/*document.getElementById("green").innerHTML="Kosztuje:         Na turę daje: <br/>" 
+		+ farm.cost.gold + " złota         " + farm.give.food + "jedzenia <br/>"
+		+ farm.cost.wood + " drewna        " + farm.give.gold + "złota <br/>"
+		+ farm.cost.men + " ludzi         " + farm.give.wood + "drewna <br/>"
+		+ farm.cost.stone + " kamienia <br/>";*/
+		var kosztuje = "Kosztuje <br/>" 
+		+ farm.cost.gold + " złota <br/>"
+		+ farm.cost.wood + " drewna  <br/>"
+		+ farm.cost.men + " ludzi <br/>"
+		+ farm.cost.stone + " kamienia <br/>";
+		var daje = "Na turę daje: <br/>"
+		+ farm.give.food + " jedzenia <br/>"
+		+ farm.give.gold + " złota <br/>"
+		+ farm.give.wood + " drewna <br/>";
+	}
+	document.getElementById("green").innerHTML = '<div id="kosztuje">' + kosztuje + '</div> <div id="masnoni">' + daje + '</div><div id="powrot"><input type="button" class="build" value="powrót" id="back" onclick="building_menu()"</div>';
 }
