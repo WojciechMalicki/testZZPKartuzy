@@ -24,15 +24,15 @@ function battleEnd(playerNumber) {
   power[1]=fortPower*Players[playerNumber].soldier;
   if(power[0]>power[1]){
     power[2]=power[0]-power[1];
-    let survivalssoldier=power[2]/totemPower;
+    let survivalsoldier=power[2]/totemPower;
     let victory = 0;
-    Players[turn].soldier=survivalssoldier;
+    Players[turn].soldier=survivalsoldier;
     Players[playerNumber].soldier=0;
   }else if(power[0]<power[1]){
     power[2]=power[1]-power[0];
-    let survivalssoldier=power[2]/fortPower;
+    let survivalsoldier=power[2]/fortPower;
     let victory = 1;
-    Players[playerNumber].soldier=survivalssoldier;
+    Players[playerNumber].soldier=survivalsoldier;
     Players[turn].soldier=0;
   }else{
     victory=2;
