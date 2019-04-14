@@ -47,7 +47,7 @@ var mine={
 	give:{food:0, gold:30, wood:0,men:0,iron:10, stone:20},
 };
 
-var defbuilding={
+var fort={
 	cost:{food:20,gold:5,wood:20,soldier:20,iron:20,stone:10},
 	give:{food:0, gold:0, wood:0,men:0,iron:0, stone:40},
 }
@@ -117,14 +117,14 @@ function create_player(number, name) {
     food:food,
     iron:iron,
     men:men,
-    soldier:0,
+    soldier:10,
     farm:0,
     forge:0,
     house:0,
     totem:0,
     barracks:0,
-	defbuilding:0,
-	mine:0,
+		fort:0,
+		mine:0,
   }
 }
 function start()
@@ -156,7 +156,7 @@ function write_buildings()
     	sign += "Totem: "+Players[turn].totem+"<br/><br/>";
     	sign += "Kopalnie: "+Players[turn].mine+"<br/><br/>";
     	sign += "Koszary: "+Players[turn].barracks+"<br/><br/>";
-    	sign += "Twierdze: "+Players[turn].defbuilding+"<br/><br/>";
+    	sign += "Twierdze: "+Players[turn].fort+"<br/><br/>";
     	document.getElementById("lblue").innerHTML = sign;
     }
     function write_resource()
@@ -187,12 +187,12 @@ function end_of_turn()
 
 	if(Players[turn].food<0)
 	{Players.splice(turn,1);
-	alert(Players[turn].nick);
+	consolePrint('gracz '+Players[turn].nick+' przegrał')
     player_number--;
     /*if(player_number===1)
 	{
 		win();
-	}*/	
+	}*/
   clear_players();
   write_players();
   completed_turns++;
@@ -236,19 +236,19 @@ function end_of_turn()
 	Players[turn].stone+=mine.give.stone*Players[turn].mine;
 	Players[turn].food+=mine.give.food*Players[turn].mine;
 
-	Players[turn].iron+=defbuilding.give.iron*Players[turn].defbuilding;
-	Players[turn].gold+=defbuilding.give.gold*Players[turn].defbuilding;
-	Players[turn].wood+=defbuilding.give.wood*Players[turn].defbuilding;
-	Players[turn].men+=defbuilding.give.men*Players[turn].defbuilding;
-	Players[turn].stone+=defbuilding.give.stone*Players[turn].defbuilding;
-	Players[turn].food+=defbuilding.give.food*Players[turn].defbuilding;
+	Players[turn].iron+=fort.give.iron*Players[turn].fort;
+	Players[turn].gold+=fort.give.gold*Players[turn].fort;
+	Players[turn].wood+=fort.give.wood*Players[turn].fort;
+	Players[turn].men+=fort.give.men*Players[turn].fort;
+	Players[turn].stone+=fort.give.stone*Players[turn].fort;
+	Players[turn].food+=fort.give.food*Players[turn].fort;
 
-	consolePrint("Otrzymał "+(forge.give.food*Players[turn].forge+farm.give.food*Players[turn].farm+house.give.food*Players[turn].house+barracks.give.food*Players[turn].barracks+defbuilding.give.food*Players[turn].defbuilding+mine.give.food*Players[turn].mine)+" jedzenia");
-	consolePrint("Otrzymał "+(forge.give.gold*Players[turn].forge+farm.give.gold*Players[turn].farm+house.give.gold*Players[turn].house+barracks.give.gold*Players[turn].barracks+defbuilding.give.gold*Players[turn].defbuilding+mine.give.gold*Players[turn].mine)+" złota");
-	consolePrint("Otrzymał "+(forge.give.wood*Players[turn].forge+farm.give.wood*Players[turn].farm+house.give.wood*Players[turn].house+barracks.give.wood*Players[turn].barracks+defbuilding.give.wood*Players[turn].defbuilding+mine.give.wood*Players[turn].mine)+" drewna");
-	consolePrint("Otrzymał "+(forge.give.iron*Players[turn].forge+farm.give.iron*Players[turn].farm+house.give.iron*Players[turn].house+barracks.give.iron*Players[turn].barracks+defbuilding.give.iron*Players[turn].defbuilding+mine.give.iron*Players[turn].mine)+" żelaza");
-	consolePrint("Otrzymał "+(forge.give.stone*Players[turn].forge+farm.give.stone*Players[turn].farm+house.give.stone*Players[turn].house+barracks.give.stone*Players[turn].barracks+defbuilding.give.stone*Players[turn].defbuilding+mine.give.stone*Players[turn].mine)+" kamienia");
-	consolePrint("Otrzymał "+(forge.give.men*Players[turn].forge+farm.give.men*Players[turn].farm+house.give.men*Players[turn].house+barracks.give.men*Players[turn].barracks+defbuilding.give.men*Players[turn].defbuilding+mine.give.men*Players[turn].mine)+" ludzi");
+	consolePrint("Otrzymał "+(forge.give.food*Players[turn].forge+farm.give.food*Players[turn].farm+house.give.food*Players[turn].house+barracks.give.food*Players[turn].barracks+fort.give.food*Players[turn].fort+mine.give.food*Players[turn].mine)+" jedzenia");
+	consolePrint("Otrzymał "+(forge.give.gold*Players[turn].forge+farm.give.gold*Players[turn].farm+house.give.gold*Players[turn].house+barracks.give.gold*Players[turn].barracks+fort.give.gold*Players[turn].fort+mine.give.gold*Players[turn].mine)+" złota");
+	consolePrint("Otrzymał "+(forge.give.wood*Players[turn].forge+farm.give.wood*Players[turn].farm+house.give.wood*Players[turn].house+barracks.give.wood*Players[turn].barracks+fort.give.wood*Players[turn].fort+mine.give.wood*Players[turn].mine)+" drewna");
+	consolePrint("Otrzymał "+(forge.give.iron*Players[turn].forge+farm.give.iron*Players[turn].farm+house.give.iron*Players[turn].house+barracks.give.iron*Players[turn].barracks+fort.give.iron*Players[turn].fort+mine.give.iron*Players[turn].mine)+" żelaza");
+	consolePrint("Otrzymał "+(forge.give.stone*Players[turn].forge+farm.give.stone*Players[turn].farm+house.give.stone*Players[turn].house+barracks.give.stone*Players[turn].barracks+fort.give.stone*Players[turn].fort+mine.give.stone*Players[turn].mine)+" kamienia");
+	consolePrint("Otrzymał "+(forge.give.men*Players[turn].forge+farm.give.men*Players[turn].farm+house.give.men*Players[turn].house+barracks.give.men*Players[turn].barracks+fort.give.men*Players[turn].fort+mine.give.men*Players[turn].mine)+" ludzi");
 	consolePrint("")
 
 if(turn===(player_number-1)){
@@ -314,7 +314,7 @@ function building_menu()
  	   }
 
 
- 	   if(Players[turn].wood>=defbuilding.cost.wood && Players[turn].food>=defbuilding.cost.food && Players[turn].men>= defbuilding.cost.men && Players[turn].gold >= defbuilding.cost.gold && Players[turn].iron>=defbuilding.cost.iron && Players[turn].stone >= defbuilding.cost.stone)
+ 	   if(Players[turn].wood>=fort.cost.wood && Players[turn].food>=fort.cost.food && Players[turn].men>= fort.cost.men && Players[turn].gold >= fort.cost.gold && Players[turn].iron>=fort.cost.iron && Players[turn].stone >= fort.cost.stone)
  	   {
  	   		posibilities += '<input type="button" class="build" value="Zbuduj twierdzę" onclick="build(6)" style="float: right; margin-right:20px;"> <br/><br/><br/>';
  	   }
@@ -415,13 +415,13 @@ function build(type)
 	}
 	else if(type==6)
 	{
-		Players[turn].defbuilding++;
-		Players[turn].wood-=defbuilding.cost.wood;
-		Players[turn].gold-=defbuilding.cost.gold;
-		Players[turn].stone-=defbuilding.cost.stone;
-		Players[turn].people-=defbuilding.cost.people;
-		Players[turn].food-=defbuilding.cost.food;
-		Players[turn].iron-=defbuilding.cost.iron;
+		Players[turn].fort++;
+		Players[turn].wood-=fort.cost.wood;
+		Players[turn].gold-=fort.cost.gold;
+		Players[turn].stone-=fort.cost.stone;
+		Players[turn].people-=fort.cost.people;
+		Players[turn].food-=fort.cost.food;
+		Players[turn].iron-=fort.cost.iron;
 		building_menu();
 		write_resource(Players[turn].wood,Players[turn].gold,Players[turn].stone,Players[turn].men,Players[turn].food,Players[turn].iron);
 		write_buildings(Players[turn].farm,Players[turn].forge,Players[turn].house,Players[turn].totem);
@@ -470,17 +470,100 @@ function description(id)
 	if(id==0)
 	{
 
-		
-		var kosztuje = "Kosztuje <br/>" 
+		/*document.getElementById("green").innerHTML="Kosztuje:         Na turę daje: <br/>"
+		+ farm.cost.gold + " złota         " + farm.give.food + "jedzenia <br/>"
+		+ farm.cost.wood + " drewna        " + farm.give.gold + "złota <br/>"
+		+ farm.cost.men + " ludzi         " + farm.give.wood + "drewna <br/>"
+		+ farm.cost.stone + " kamienia <br/>";*/
+		var kosztuje = "Kosztuje <br/>"
 		+ farm.cost.gold + " złota <br/>"
 		+ farm.cost.wood + " drewna  <br/>"
 		+ farm.cost.men + " ludzi <br/>"
 		+ farm.cost.stone + " kamienia <br/>";
+		+ farm.cost.iron +" żelaza <br>"
+		+ farm.cost.food + " jedzenia <br/>";
 		var daje = "Na turę daje: <br/>"
-		+ farm.give.food + " jedzenia <br/>"
 		+ farm.give.gold + " złota <br/>"
-		+ farm.give.wood + " drewna <br/>";
+		+ farm.give.wood + " drewna  <br/>"
+		+ farm.give.men + " ludzi <br/>"
+		+ farm.give.stone + " kamienia <br/>";
+		+ farm.give.iron +" żelaza <br>"
+		+ farm.give.food + " jedzenia <br/>";
+	}else if(id===1){
+		var kosztuje = "Kosztuje <br/>"
+		+ forge.cost.gold + " złota <br/>"
+		+ forge.cost.wood + " drewna  <br/>"
+		+ forge.cost.men + " ludzi <br/>"
+		+ forge.cost.stone + " kamienia <br/>";
+		+ forge.cost.iron +" żelaza <br>"
+		+ forge.cost.food + " jedzenia <br/>";
+		var daje = "Na turę daje: <br/>"
+		+ forge.give.gold + " złota <br/>"
+		+ forge.give.wood + " drewna  <br/>"
+		+ forge.give.men + " ludzi <br/>"
+		+ forge.give.stone + " kamienia <br/>";
+		+ forge.give.iron +" żelaza <br>"
+		+ forge.give.food + " jedzenia <br/>";
+	}else if(id===2){
+		var kosztuje = "Kosztuje <br/>"
+		+ house.cost.gold + " złota <br/>"
+		+ house.cost.wood + " drewna  <br/>"
+		+ house.cost.men + " ludzi <br/>"
+		+ house.cost.stone + " kamienia <br/>";
+		+ house.cost.iron +" żelaza <br>"
+		+ house.cost.food + " jedzenia <br/>";
+		var daje = "Na turę daje: <br/>"
+		+ house.give.gold + " złota <br/>"
+		+ house.give.wood + " drewna  <br/>"
+		+ house.give.men + " ludzi <br/>"
+		+ house.give.stone + " kamienia <br/>";
+		+ house.give.iron +" żelaza <br>"
+		+ house.give.food + " jedzenia <br/>";
+	}else if(id===3){
+		var kosztuje = "Kosztuje <br/>"
+		+ totem.cost.gold + " złota <br/>"
+		+ totem.cost.wood + " drewna  <br/>"
+		+ totem.cost.men + " ludzi <br/>"
+		+ totem.cost.stone + " kamienia <br/>";
+		+ totem.cost.iron +" żelaza <br>"
+		+ totem.cost.food + " jedzenia <br/>";
+		var daje = "Zwiększa siłę armi w ataku"
+	}else if(id===5){
+		var kosztuje = "Kosztuje <br/>"
+		+ fort.cost.gold + " złota <br/>"
+		+ fort.cost.wood + " drewna  <br/>"
+		+ fort.cost.men + " ludzi <br/>"
+		+ fort.cost.stone + " kamienia <br/>";
+		+ fort.cost.iron +" żelaza <br>"
+		+ fort.cost.food + " jedzenia <br/>";
+		var daje = "Zwiększa siłę armi w obronie"
+	}else if(id===4){
+		var kosztuje = "Kosztuje <br/>"
+		+ barrack.cost.gold + " złota <br/>"
+		+ barrack.cost.wood + " drewna  <br/>"
+		+ barrack.cost.men + " ludzi <br/>"
+		+ barrack.cost.stone + " kamienia <br/>";
+		+ barrack.cost.iron +" żelaza <br>"
+		+ barrack.cost.food + " jedzenia <br/>";
+		var daje = "Na turę daje: <br/>"
+		+ barrack.give.solider + " żołnieży"
+	}else if(id===6){
+		var kosztuje = "Kosztuje <br/>"
+		+ mine.cost.gold + " złota <br/>"
+		+ mine.cost.wood + " drewna  <br/>"
+		+ mine.cost.men + " ludzi <br/>"
+		+ mine.cost.stone + " kamienia <br/>";
+		+ mine.cost.iron +" żelaza <br>"
+		+ mine.cost.food + " jedzenia <br/>";
+		var daje = "Na turę daje: <br/>"
+		+ mine.give.gold + " złota <br/>"
+		+ mine.give.wood + " drewna  <br/>"
+		+ mine.give.men + " ludzi <br/>"
+		+ mine.give.stone + " kamienia <br/>";
+		+ mine.give.iron +" żelaza <br>"
+		+ mine.give.food + " jedzenia <br/>";
 	}
+
 	document.getElementById("green").innerHTML = '<div id="kosztuje">' + kosztuje + '</div> <div id="masnoni">' + daje + '</div><div id="powrot"><input type="button" class="build" value="powrót" id="back" onclick="building_menu()"</div>';
 }
 function gra()

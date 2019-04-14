@@ -103,9 +103,9 @@ function create_player(number, name) {
     forge:0,
     house:0,
     totem:0,
-		soliders:0,
+		soliders:10,
 		baracks:0,
-		defbuilding:0
+		fort:0
   }
 }
 function start()
@@ -170,8 +170,7 @@ console.log(Players)
   player_number--;
 	clear_players();
   write_players();
-	
-		setTimeout(start(), 1000);
+	setTimeout(start(), 1000);
 	}else{
   Players[turn].iron+=forge.give.iron*Players[turn].forge;
 	Players[turn].gold+=forge.give.gold*Players[turn].forge;
