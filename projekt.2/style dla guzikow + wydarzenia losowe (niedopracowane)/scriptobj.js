@@ -155,19 +155,24 @@ function win()
 }
 function end_of_turn()
 {
-
+console.log(turn);
+console.log(completed_turns);
+console.log(Players)
 	//odjęcie jedzenia w zależności od ilości ludzi
 	consolePrint("gracz "+Players[turn].nick+" zakończył turę")
 	Players[turn].food-=Players[turn].men;
 	consolePrint("stracił "+Players[turn].men+" jedzenia");
 
-	if(Players[turn].food<0)
-	{Players.splice(turn,1);
-    player_number--;
-  clear_players();
-  write_players();
+	if(Players[turn].food<0){
   completed_turns++;
-}else{
+	consolePrint("gracz "+Players[turn].nick+" odpadł z powodu braku żywności");
+	Players.splice(turn,1);
+  player_number--;
+	clear_players();
+  write_players();
+	
+		setTimeout(start(), 1000);
+	}else{
   Players[turn].iron+=forge.give.iron*Players[turn].forge;
 	Players[turn].gold+=forge.give.gold*Players[turn].forge;
 	Players[turn].wood+=forge.give.wood*Players[turn].forge;
