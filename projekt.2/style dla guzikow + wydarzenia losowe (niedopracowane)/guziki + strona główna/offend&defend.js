@@ -1,6 +1,6 @@
 function attack() {
   green.innerHTML='';
-  for(let i=0;i<player_number;i++){
+  for(var i=0;i<player_number;i++){
     if(i!==turn){
       green.innerHTML+='<input type="button" value="'+Players[i].nick+'" onclick="battle('+i.toString()+')"/>';
     }
@@ -17,25 +17,29 @@ function battle(playerNumber){
 
 }
 function battleEnd(playerNumber) {
-  let power = [];
+  var power = [];
+  var stolenGold;
+  var stolenFood;
   totemPower=(Players[turn].totem*0.1)+1;
   fortPower=(Players[playerNumber].fort*0.1)+1;
   power[0]=totemPower*Players[turn].soldier;
   power[1]=fortPower*Players[playerNumber].soldier;
   if(power[0]>power[1]){
     power[2]=power[0]-power[1];
-    let survivalsoldier=power[2]/totemPower;
-    let victory = 0;
+    var survivalsoldier=power[2]/totemPower;
+    survivalsoldier = Math.round(survivalsoldier);
+    var victory = 0;
     Players[turn].soldier=survivalsoldier;
     Players[playerNumber].soldier=0;
   }else if(power[0]<power[1]){
     power[2]=power[1]-power[0];
-    let survivalsoldier=power[2]/fortPower;
-    let victory = 1;
+    var survivalsoldier=power[2]/fortPower;
+    survivalsoldier = Math.round(survivalsoldier);
+    var victory = 1;
     Players[playerNumber].soldier=survivalsoldier;
     Players[turn].soldier=0;
   }else{
-    victory=2;
+    var victory=2;
     Players[turn].soldier=0;
     Players[playerNumber].soldier=0;
   }
@@ -48,19 +52,21 @@ function battleEnd(playerNumber) {
       Players[playerNumber].food-=Players[turn].soldier*5;
     }
     if(Players[playerNumber].gold<Players[turn].soldier){
-      stolengold=Players[playerNumber].gold;
+      stolenGold=Players[playerNumber].gold;
       Players[playerNumber].gold=0;
     }else{
-      stolengold=Players[turn].soldier;
+      stolenGold=Players[turn].soldier;
       Players[playerNumber].gold-=Players[turn].soldier;
     }
-    green.innerHTML="<h1>wygrałeś</h1><br>zdobyłeś:"+stolenFood+" żywności<br>"+ stolenGold + " złota"
+    Players[turn].food+=stolenFood;
+    Players[turn].gold+=stolenGold;
+    consolePrint("wygrałeś i zdobyłeś:"+stolenFood+" żywności i "+ stolenGold + " złota");
   }else if(victory===1){
-    green.innerHTML="<h1>Przegrałeś</h1>";
+    consolePrint("Przegrałeś");
   }else{
-    green.innerHTML="<h1>Nikt nie Wygrał</h1>";
+    consolePrint("Nikt nie Wygrał");
   }
   write_buildings();
   write_resource();
-  building_menu();
+  start();
 }
