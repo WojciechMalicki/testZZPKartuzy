@@ -6,6 +6,7 @@ VERSION: 3.1.2 (WERSJĘ PROSZĘ ZMIENIAĆ PRZY MODYFIKACJACH)
 var consoleArray = 'gra się zaczyna<br>';
 var consoleLayout = document.getElementById("console");
 consoleLayout.innerHTML=consoleArray;
+var green = document.getElementById("green");
 var loadingState = 0;
 var wood = 100;
 var stone = 100;
@@ -68,7 +69,12 @@ player_list();
 
 }else if (e.keyCode === 13&& loadingState==1) {
 create_players();
-}}, false);
+}else if(e.keyCode === 13&&loadingState==2){
+customPlayer_list();
+}else if(e.keyCode === 13&&loadingState==3){
+customCreate_players();
+}
+}, false);
 
 function player_list()
 {
