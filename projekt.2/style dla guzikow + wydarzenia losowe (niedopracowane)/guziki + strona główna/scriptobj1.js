@@ -150,6 +150,8 @@ document.getElementById("green").innerHTML += '<input type="button" value="zakoÅ
 random_effects(random_int(random_amount));
 write_buildings();
 write_resource();
+clear_players();
+write_players();
 //turn++ dopiero na koniec tury aby dodaÄ‡ zasoby
     }
 function write_buildings()
