@@ -144,7 +144,7 @@ consolePrint("rozpoczyna się tura "+completed_turns)
 
 
 document.getElementById("green").innerHTML = "Tura gracza o nicku: <br/> <br/>" + Players[turn].nick+"<br/><br/>";
-document.getElementById("green").innerHTML += '<input type="button" value="zbuduj budynek" class="build" onclick="building_menu()"><br/><br/>';
+document.getElementById("green").innerHTML += '<input type="button" value="zbuduj budynek" class="build" onclick="building_menu()"><input type="button" value="Atakuj" class="build" onclick="attack()"><br/><br/>';
 document.getElementById("green").innerHTML += '<input type="button" value="zakończ ture" class="build" onclick="end_of_turn()"><br/><br/>';
 
 random_effects(random_int(random_amount));

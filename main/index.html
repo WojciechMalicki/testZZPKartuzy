@@ -10,7 +10,7 @@
     <meta name="description" content="Internet game - revOmeaG" />
     <meta name="keywords" content="revOmeaG" />
 
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="style1.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Righteous|Sedgwick+Ave" rel="stylesheet">
 
 </head>
@@ -21,21 +21,21 @@
             <img id=logo src="Logo.png"/>
         </div>
 
-        <div class="item" id="green">Podaj liczbe graczy <br/> <br/>
-            <input type="number" min="2" max="10" id="liczba_graczy" class="number">
-            <button onclick="player_list()" class="build">Akceptuj</button>
-
+        <div class="item" id="green"> <br/> <br/>
+            Tryby gry:<br/><br/>
+            <input type="button" value="standard" id="mode1" class="build" onclick="gra()"/>
+            <input type="button" value="custom" id="mode2" class="build" onclick="customGra()"/>
         </div>
 
         <div id="zasoby-container">
-            <div id="zasoby-napis">ZASOBY:</div>
+            <div id="zasoby-napis"></div>
             <div class="item" id="zasoby"></div>
         </div>
 
 
-        <div class="item" id="blue">Lista graczy
+        <div class="item" id="blue">
         </div>
-        <div class="item" id="lblue">Ilość Budynków:<br/><br/>
+        <div class="item" id="lblue"><br/><br/>
         </div>
         <div class="item" id="red">
             <div id="console" style="overflow-y: scroll">
@@ -43,7 +43,9 @@
             </div>
         </div>
     </div>
-    <script src="scriptobj.js" type="text/javascript"></script>
+    <script src="scriptobj1.js" type="text/javascript"></script>
+    <script src="offend&defend.js" type="text/javascript"></script>
+    <script src="customStart.js" type="text/javascript"></script>
     <!--aby otworzyć nie objektową wersje js usuń obj z src="scriptobj.js"-->
 </body>
 </html>
